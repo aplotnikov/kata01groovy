@@ -1,6 +1,5 @@
 package org.home.kata01.product
 
-import groovy.transform.Canonical
 import groovy.transform.EqualsAndHashCode
 import org.home.kata01.product.amount.Amount
 import org.home.kata01.product.discounts.Discount
@@ -12,8 +11,7 @@ import static org.home.kata01.product.amount.Amount.Builder.anAmount
 import static org.home.kata01.product.discounts.DiscountManager.IteratorState.NEXT_ELEMENT
 import static org.home.kata01.product.discounts.DiscountManager.IteratorState.REPEAT_FOR_CURRENT_ELEMENT
 
-//@EqualsAndHashCode(excludes = 'discountManager', includeFields = true)
-@Canonical(excludes = ["discountManager"])
+@EqualsAndHashCode(includeFields = true, includes = ['name', 'price'])
 class Product {
     final Name name
     final Price price
@@ -35,21 +33,22 @@ class Product {
 
         discountManager.iterateDiscounts({ Amount productAmountForDiscount, Price discountPrice ->
             if (productAmountForDiscount.isBigger(amountOfProduct)) {
-                return NEXT_ELEMENT;
+                // it is important to have this 'return' word in other case we'll have never finished loop
+                return NEXT_ELEMENT
             }
 
-            amountOfProduct.subtract(productAmountForDiscount);
-            resultPrice.add(discountPrice);
+            amountOfProduct.subtract(productAmountForDiscount)
+            resultPrice.add(discountPrice)
 
-            return REPEAT_FOR_CURRENT_ELEMENT;
+            REPEAT_FOR_CURRENT_ELEMENT
         })
 
         if (!amountOfProduct.isZero()) {
-            Price productPrice = price.multiply(amountOfProduct);
-            resultPrice.add(productPrice);
+            Price productPrice = price.multiply(amountOfProduct)
+            resultPrice.add(productPrice)
         }
 
-        return resultPrice;
+        resultPrice
     }
 
     @Override

@@ -13,7 +13,7 @@ class DiscountManager {
     }
 
     void addDiscount(Discount discount) throws IllegalStateException {
-        if (rules.find { it.key == discount.amount }) {
+        if (rules.containsKey(discount.amount)) {
             throw new IllegalStateException("The discount for a given amount of product is already existed.")
         }
 

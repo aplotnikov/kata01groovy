@@ -2,7 +2,7 @@ package org.home.kata01.product.amount
 
 import groovy.transform.EqualsAndHashCode
 
-@EqualsAndHashCode
+@EqualsAndHashCode(includeFields = true, includes = ['amount'])
 class MutableAmount implements Amount {
     protected int amount
 

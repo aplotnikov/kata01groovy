@@ -3,9 +3,9 @@ package org.home.kata01.product
 import groovy.transform.EqualsAndHashCode
 import org.home.kata01.product.amount.Amount
 
-@EqualsAndHashCode
+@EqualsAndHashCode(includes = ['value'], includeFields = true)
 class Price {
-    private BigDecimal value;
+    private BigDecimal value
 
     static Price zero() {
         of(0)

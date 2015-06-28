@@ -6,7 +6,7 @@ import org.home.kata01.product.amount.Amount
 
 import static org.home.kata01.product.amount.Amount.Builder.anAmount
 
-@EqualsAndHashCode
+@EqualsAndHashCode(includeFields = true, includes = ['name', 'amount'])
 class ScannedProduct {
     final Name name
     final Amount amount
@@ -26,6 +26,7 @@ class ScannedProduct {
 
     @Override
     String toString() {
-        "Product '$name' is scanned $amount.value() times"
+        def value = amount.value()
+        "Product '$name' is scanned $value times"
     }
 }

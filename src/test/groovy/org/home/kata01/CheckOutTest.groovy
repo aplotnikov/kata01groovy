@@ -13,11 +13,12 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
+import static groovy.test.GroovyAssert.shouldFail
 import static org.home.kata01.CheckOut.Builder.aCheckOut
 import static org.home.kata01.product.Product.Builder.aProduct
 
 @RunWith(DataProviderRunner.class)
-class CheckOutTest extends GroovyTestCase {
+class CheckOutTest {
     private CheckOut checkOut
 
     @Before

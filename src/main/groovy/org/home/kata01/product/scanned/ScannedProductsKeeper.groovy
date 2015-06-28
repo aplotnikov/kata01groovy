@@ -11,10 +11,10 @@ class ScannedProductsKeeper {
 
     void addScannedProduct(String name) {
         Name productName = Name.of(name)
-        Map.Entry<Name, ScannedProduct> entry = scannedProducts.find { it.key == productName }
+        ScannedProduct scannedProduct = scannedProducts.get(productName)
 
-        if (entry) {
-            entry.value.increaseAmount()
+        if (scannedProduct) {
+            scannedProduct.increaseAmount()
         } else {
             scannedProducts.put(productName, ScannedProduct.of(name))
         }

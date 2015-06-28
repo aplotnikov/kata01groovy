@@ -8,7 +8,7 @@ import org.home.kata01.product.amount.Amount
 import static com.google.common.base.Preconditions.checkState
 import static org.home.kata01.product.amount.Amount.Builder.anAmount
 
-@EqualsAndHashCode
+@EqualsAndHashCode(includeFields = true, includes = ['amount', 'price'])
 @TupleConstructor
 class Discount {
     final Amount amount
@@ -16,7 +16,8 @@ class Discount {
 
     @Override
     String toString() {
-        "Discount for $amount.value() products with price $price"
+        int value = amount.value()
+        "Discount for $value products with price $price"
     }
 
     static class Builder {
