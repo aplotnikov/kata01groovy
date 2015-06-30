@@ -66,8 +66,8 @@ class DiscountTest {
             Price expectedPrice = TestPrice.TEN.toPrice()
 
             Discount product = aDiscount().forProductAmount(TestAmount.FIVE.toInt())
-                    .withPrice(TestPrice.TEN.getValue())
-                    .create()
+                                          .withPrice(TestPrice.TEN.getValue())
+                                          .create()
 
             assert product
             assert product.amount == expectedAmount

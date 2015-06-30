@@ -8,7 +8,7 @@ import static org.home.kata01.product.amount.Amount.Builder.anAmount
 
 @EqualsAndHashCode(includeFields = true, includes = ['name', 'amount'])
 class ScannedProduct {
-    final Name name
+    final Name   name
     final Amount amount
 
     static ScannedProduct of(String name) {

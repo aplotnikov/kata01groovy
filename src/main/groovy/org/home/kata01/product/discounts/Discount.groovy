@@ -12,7 +12,7 @@ import static org.home.kata01.product.amount.Amount.Builder.anAmount
 @TupleConstructor
 class Discount {
     final Amount amount
-    final Price price
+    final Price  price
 
     @Override
     String toString() {
@@ -21,7 +21,7 @@ class Discount {
     }
 
     static class Builder {
-        private int amount
+        private int    amount
         private double price
 
         private Builder() {

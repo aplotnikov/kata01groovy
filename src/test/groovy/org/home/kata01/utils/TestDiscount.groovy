@@ -10,7 +10,7 @@ enum TestDiscount {
     THIRD(TestAmount.THREE, TestPrice.SEVEN)
 
     private final TestAmount amount
-    private final TestPrice price
+    private final TestPrice  price
 
     TestDiscount(TestAmount amount, TestPrice price) {
         this.amount = amount
@@ -19,7 +19,7 @@ enum TestDiscount {
 
     Discount toDiscount() {
         aDiscount().forProductAmount(amount.toInt())
-                .withPrice(price.getValue())
-                .create()
+                   .withPrice(price.getValue())
+                   .create()
     }
 }

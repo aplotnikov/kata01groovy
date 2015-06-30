@@ -9,7 +9,7 @@ enum TestProduct {
     B(TestName.B, TestPrice.FIVE),
     C(TestName.C, TestPrice.TWENTY)
 
-    private final TestName name
+    private final TestName  name
     private final TestPrice price
 
     TestProduct(TestName name, TestPrice price) {
@@ -19,7 +19,7 @@ enum TestProduct {
 
     Product toProduct() {
         aProduct().withName(name.name())
-                .withPrice(price.getValue())
-                .create()
+                  .withPrice(price.getValue())
+                  .create()
     }
 }

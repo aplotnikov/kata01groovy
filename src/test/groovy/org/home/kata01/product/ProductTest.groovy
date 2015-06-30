@@ -24,9 +24,9 @@ class ProductTest {
         @Before
         void setUp() throws Exception {
             product = aProduct().withName(TestName.A.name())
-                    .withPrice(TestPrice.TEN.getValue())
-                    .withDiscount(TestDiscount.FIRST.toDiscount())
-                    .create()
+                                .withPrice(TestPrice.TEN.getValue())
+                                .withDiscount(TestDiscount.FIRST.toDiscount())
+                                .create()
         }
 
         @Test
@@ -95,8 +95,8 @@ class ProductTest {
         void "exception should be thrown when rule with the same amount of product is already existed"() {
             shouldFail(IllegalStateException) {
                 Discount discount = aDiscount().forProductAmount(TestAmount.ONE.toInt())
-                        .withPrice(TestPrice.TEN.getValue())
-                        .create()
+                                               .withPrice(TestPrice.TEN.getValue())
+                                               .create()
 
                 aProduct().withDiscount(discount).withDiscount(discount).create()
             }

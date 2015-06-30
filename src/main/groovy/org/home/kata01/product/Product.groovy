@@ -13,8 +13,8 @@ import static org.home.kata01.product.discounts.DiscountManager.IteratorState.RE
 
 @EqualsAndHashCode(includeFields = true, includes = ['name', 'price'])
 class Product {
-    final Name name
-    final Price price
+    final         Name            name
+    final         Price           price
     private final DiscountManager discountManager
 
     Product(Name name, Price price, DiscountManager discountManager) {

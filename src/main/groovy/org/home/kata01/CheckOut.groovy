@@ -7,7 +7,7 @@ import org.home.kata01.product.amount.Amount
 import org.home.kata01.product.scanned.ScannedProductsKeeper
 
 class CheckOut {
-    private final ProductsManager productsManager
+    private final ProductsManager       productsManager
     private final ScannedProductsKeeper scannedProductsKeeper
 
     CheckOut(ProductsManager productsManager, ScannedProductsKeeper scannedProductsKeeper) {
@@ -22,9 +22,9 @@ class CheckOut {
     Price getPrice() {
         final Price price = Price.zero();
         scannedProductsKeeper.scannedProducts()
-                .collect { new Tuple2<Product, Amount>(productsManager.findProductByName(it.name), it.amount) }
-                .collect { it.getFirst().getPriceForAmount(it.getSecond()) }
-                .each { price.add(it) }
+                             .collect { new Tuple2<Product, Amount>(productsManager.findProductByName(it.name), it.amount) }
+                             .collect { it.getFirst().getPriceForAmount(it.getSecond()) }
+                             .each { price.add(it) }
         price
     }
 

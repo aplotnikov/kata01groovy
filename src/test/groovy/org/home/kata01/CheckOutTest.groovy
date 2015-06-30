@@ -24,20 +24,20 @@ class CheckOutTest {
     @Before
     void "prepare test"() {
         Product productA = aProduct().withName(TestName.A.name())
-                .withPrice(TestPrice.TEN.getValue())
-                .withDiscount(TestDiscount.SECOND.toDiscount())
-                .withDiscount(TestDiscount.THIRD.toDiscount())
-                .create()
+                                     .withPrice(TestPrice.TEN.getValue())
+                                     .withDiscount(TestDiscount.SECOND.toDiscount())
+                                     .withDiscount(TestDiscount.THIRD.toDiscount())
+                                     .create()
 
         Product productB = aProduct().withName(TestName.B.name())
-                .withPrice(TestPrice.FIVE.getValue())
-                .withDiscount(TestDiscount.SECOND.toDiscount())
-                .create()
+                                     .withPrice(TestPrice.FIVE.getValue())
+                                     .withDiscount(TestDiscount.SECOND.toDiscount())
+                                     .create()
 
         checkOut = aCheckOut().withProduct(productA)
-                .withProduct(productB)
-                .withProduct(TestProduct.C.toProduct())
-                .create()
+                              .withProduct(productB)
+                              .withProduct(TestProduct.C.toProduct())
+                              .create()
     }
 
     @Test
