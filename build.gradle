@@ -14,4 +14,5 @@ dependencies {
         exclude module: "junit:junit:3.8.1"
     }
     testCompile group: 'com.tngtech.java', name: 'junit-dataprovider', version: '1.9.4'
+    testCompile group: 'org.spockframework', name: 'spock-core', version: '1.0-groovy-2.4'
 }
